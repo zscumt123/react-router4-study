@@ -20,7 +20,7 @@ router = {
     }
 }
 ```
-`router`中的`history`对象来自于`history`模块，`location`对象里面存储着当前`url`的信息，`match`来自于`Router`组件的`state`对象。
+`router`中的`history`对象来自于`history`模块，提供了一些操作路由的方法，和当前路由的信息，`location`对象里面存储着当前`url`的信息，`match`来自于`Router`组件的`state`对象。
 `Router`组件会监听路由的改变，然后调用`setState`方法改变match,将会触发子组件的`componentWillReceiveProps`方法，子组件会通过`componentWillReceiveProps`方法接受到新的`context`。
 ```js
     //当路由改变时，子组件会得到新的context中的router对象,
@@ -29,4 +29,13 @@ componentWillReceiveProps(nextProps, nextContext) {
 }
 ```
 总之，`Router`组件作为顶层组件，监听者路由的变化，然后提供给子组件。
+###Props###
+`history: object`
+`Router`组件接受一个`history`的`props`,向`Router`组件提供`history`对象,最终提供给子组件。
 
+```js
+import createBrowserHistory from 'history/createBrowserHistory'
+
+const customHistory = createBrowserHistory()
+<Router history={customHistory}><App/></Router>
+```
