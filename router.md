@@ -39,3 +39,9 @@ import createBrowserHistory from 'history/createBrowserHistory'
 const customHistory = createBrowserHistory()
 <Router history={customHistory}><App/></Router>
 ```
+`react-router`目前根据不同类型的`history`对象，对`Router`组件进行了封装，形成了几种不同的组件。
+    BrowserRouter
+    HashRouter
+    MemoryRouter
+    NativeRouter
+    StaticRouter
